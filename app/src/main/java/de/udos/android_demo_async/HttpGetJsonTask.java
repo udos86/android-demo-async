@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class HttpGetJsonTask extends AsyncTask<String, Void, String> {
 
-    private static final String MIME_TYPE = "application/json";
+    private static final String CONTENT_TYPE_JSON = "application/json";
 
     private OnTaskListener mListener = null;
 
@@ -38,7 +38,7 @@ public class HttpGetJsonTask extends AsyncTask<String, Void, String> {
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
 
-                if (connection.getContentType().contains(MIME_TYPE)) {
+                if (connection.getContentType().contains(CONTENT_TYPE_JSON)) {
 
                     json = InputStreamUtils.readJSON(connection.getInputStream());
 
