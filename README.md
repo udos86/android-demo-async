@@ -1,2 +1,11 @@
 # android-demo-async
-Native Android project exploring async tasks and web service coomunication
+
+Sample project for my full-day training on **Advanced Android Development**
+
+**App topics**:
+
+* RecyclerView and CardView
+* Fragments
+* Async Tasks 
+* Web Service Communication
+* JSON
