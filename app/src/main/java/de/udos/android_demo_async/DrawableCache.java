@@ -14,10 +14,10 @@ public class DrawableCache {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 8;
 
-        mCache = new LruCache<String, Drawable>(cacheSize);
+        mCache = new LruCache<>(cacheSize);
     }
 
-    public static synchronized DrawableCache getInstance() {
+    static synchronized DrawableCache getInstance() {
 
         if (instance == null) {
             instance = new DrawableCache();
@@ -26,12 +26,12 @@ public class DrawableCache {
         return instance;
     }
 
-    public void setDrawable(String key, Drawable drawable) {
+    void setDrawable(String key, Drawable drawable) {
 
         mCache.put(key, drawable);
     }
 
-    public Drawable getDrawable (String key) {
+    Drawable getDrawable(String key) {
 
         return mCache.get(key);
     }

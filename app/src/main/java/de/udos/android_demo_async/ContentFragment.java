@@ -63,7 +63,7 @@ public class ContentFragment extends Fragment implements HttpGetJsonTask.OnTaskL
 
         View rootView = inflater.inflate(R.layout.fragment_content, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        mRecyclerView = rootView.findViewById(R.id.recycler_view);
         mLayoutManager = new LinearLayoutManager(getActivity());
 
         mItemAnimator = new DefaultItemAnimator();

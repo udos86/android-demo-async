@@ -5,7 +5,7 @@ public class Item {
     private String name;
     private String imageUrl;
 
-    public Item(String name, String imageUrl) {
+    Item(String name, String imageUrl) {
 
         this.name = name;
         this.imageUrl = imageUrl;
@@ -23,7 +23,7 @@ public class Item {
         return name;
     }
 
-    public String getImageUrl() {
+    String getImageUrl() {
         return imageUrl;
     }
 

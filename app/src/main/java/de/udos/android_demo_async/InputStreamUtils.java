@@ -14,9 +14,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class InputStreamUtils {
+class InputStreamUtils {
 
-    public static String readJSON(InputStream inputStream) {
+    static String readJSON(InputStream inputStream) {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder stringBuilder = new StringBuilder();
@@ -44,12 +44,12 @@ public class InputStreamUtils {
         return stringBuilder.toString();
     }
 
-    public static Bitmap readBitmap(InputStream inputStream) {
+    static Bitmap readBitmap(InputStream inputStream) {
 
         return BitmapFactory.decodeStream(inputStream);
     }
 
-    public static Drawable readSVG(InputStream inputStream) {
+    static Drawable readSVG(InputStream inputStream) {
 
         Drawable drawable = null;
 

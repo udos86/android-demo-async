@@ -3,7 +3,9 @@ package de.udos.android_demo_async;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +21,32 @@ public class CardViewItemAdapter extends RecyclerView.Adapter<CardViewItemAdapte
     private Context mContext;
     private ArrayList<Item> mData;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private final CardView mCardView;
         private final TextView mItemTitle;
         private final ImageView mItemImage;
 
-        public ViewHolder(View itemView) {
+        Item item;
+
+        ViewHolder(View itemView) {
 
             super(itemView);
-            mItemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
-            mItemImage = (ImageView) itemView.findViewById(R.id.itemImage);
+
+            mCardView = itemView.findViewById(R.id.card_view);
+            mItemTitle = itemView.findViewById(R.id.itemTitle);
+            mItemImage = itemView.findViewById(R.id.itemImage);
+
+            mCardView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.i(CardViewItemAdapter.class.toString(), this.item.getName());
         }
     }
 
-    public CardViewItemAdapter(Context context, ArrayList<Item> data) {
+    CardViewItemAdapter(Context context, ArrayList<Item> data) {
 
         mContext = context;
         mData = data;
@@ -53,6 +67,7 @@ public class CardViewItemAdapter extends RecyclerView.Adapter<CardViewItemAdapte
         Item item = mData.get(position);
         Drawable itemImageDrawable = DrawableCache.getInstance().getDrawable(item.getImageUrl());
 
+        holder.item = item;
         holder.mItemTitle.setText(item.getName());
         holder.mItemImage.setVisibility(View.INVISIBLE);
 

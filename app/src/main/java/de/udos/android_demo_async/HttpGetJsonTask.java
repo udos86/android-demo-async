@@ -44,7 +44,7 @@ public class HttpGetJsonTask extends AsyncTask<String, Void, String> {
 
                 } else {
 
-                    throw new IOException(HttpGetImageTask.class.toString()
+                    throw new IOException(HttpGetJsonTask.class.toString()
                             + " unexpected content type " + connection.getContentType() + " "
                             + url.toString());
                 }

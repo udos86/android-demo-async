@@ -23,7 +23,7 @@ public class HttpGetImageTask extends AsyncTask<String, Void, Drawable> {
     private WeakReference<ImageView> mImageViewWeakReference = null;
     private String mUrlString = null;
 
-    public HttpGetImageTask(OnTaskListener listener, ImageView imageView) {
+    HttpGetImageTask(OnTaskListener listener, ImageView imageView) {
 
         mListener = listener;
         mImageViewWeakReference = new WeakReference<>(imageView);
