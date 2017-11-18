@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         String param = null;
 
-        if (id == R.id.nav_spotify_web_api) {
+        if (id == R.id.nav_itunes_web_api) {
 
-            param = "https://api.spotify.com/v1/search?query=artist:ryan+adams&type=album&market=de";
+            param = "https://itunes.apple.com/search?term=ryan+adams&entity=album";
         }
 
         ContentFragment fragment = ContentFragment.newInstance(param);

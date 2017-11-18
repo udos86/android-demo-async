@@ -10,10 +10,11 @@ import java.net.URL;
 public class HttpGetJsonTask extends AsyncTask<String, Void, String> {
 
     private static final String CONTENT_TYPE_JSON = "application/json";
+    private static final String CONTENT_TYPE_JAVASCRIPT = "text/javascript; charset=utf-8";
 
     private OnTaskListener mListener = null;
 
-    public HttpGetJsonTask(OnTaskListener listener) {
+    HttpGetJsonTask(OnTaskListener listener) {
 
         mListener = listener;
     }
@@ -38,7 +39,9 @@ public class HttpGetJsonTask extends AsyncTask<String, Void, String> {
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
 
-                if (connection.getContentType().contains(CONTENT_TYPE_JSON)) {
+                String contentType = connection.getContentType();
+
+                if (contentType.contains(CONTENT_TYPE_JSON) ||contentType.contains(CONTENT_TYPE_JAVASCRIPT)) {
 
                     json = InputStreamUtils.readJSON(connection.getInputStream());
 

@@ -44,7 +44,8 @@ public class ContentFragment extends Fragment implements HttpGetJsonTask.OnTaskL
         return fragment;
     }
 
-    public ContentFragment() {}
+    public ContentFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,7 +117,7 @@ public class ContentFragment extends Fragment implements HttpGetJsonTask.OnTaskL
     public void onJsonLoaded(String json) {
 
         JsonObject rootObject = new JsonParser().parse(json).getAsJsonObject();
-        JsonArray items = rootObject.getAsJsonObject("albums").getAsJsonArray("items");
+        JsonArray items = rootObject.getAsJsonArray("results");
 
         //Type type = new TypeToken<List<Item>>(){}.getType(); // für direktes Mapping zu Klasseninstanzen
         //List<Item> items = new Gson().fromJson(items, type);
@@ -126,11 +127,11 @@ public class ContentFragment extends Fragment implements HttpGetJsonTask.OnTaskL
 
             JsonObject item = element.getAsJsonObject();
 
-            String name = item.get("name").getAsString();
-            String url = item.getAsJsonArray("images").get(0).getAsJsonObject().get("url").getAsString();
+            String name = item.get("collectionName").getAsString();
+            String url = item.get("artworkUrl100").getAsString();
 
-            if (!url.contains("https")) {
-                url = url.replace("http", "https");
+            if (url.contains("100x100bb")) {
+                url = url.replace("100x100bb", "400x400bb");
             }
 
             mData.add(new Item(name, url));

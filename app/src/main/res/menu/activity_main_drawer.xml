@@ -4,9 +4,9 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_spotify_web_api"
+            android:id="@+id/nav_itunes_web_api"
             android:icon="@android:drawable/ic_menu_agenda"
-            android:title="Spotify Web API" />
+            android:title="iTunes Web API" />
 
 
     </group>
